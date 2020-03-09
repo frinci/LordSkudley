@@ -1,7 +1,9 @@
 .navBox {
     position: fixed;
     display: flex;
-    height: 70px;
+    height: 80px;
+    background: white;
+    width: 100vw;
 }
 
 .logoBox img{
