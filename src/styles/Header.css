@@ -1,0 +1,35 @@
+.navBox {
+    position: fixed;
+    display: flex;
+    height: 70px;
+}
+
+.logoBox img{
+    height: 60px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.navList {
+    display: flex;
+}
+
+.navList ul {
+    position: relative;
+    display: flex;
+    left: 700px;
+    align-items: center;
+    padding: 5px;
+}
+
+.navList li {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    margin: 5px
+}
+
+.navList img {
+    height: 25px;
+}
