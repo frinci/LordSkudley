@@ -1,20 +1,50 @@
 import React from 'react'
+import { Component } from 'react'
 import AHeader from '../nav/AHeader'
 import '../styles/About.css'
+import {base} from '../services/apiConfig'
 
 import headshot from '../images/featured/Headshot.JPG'
 import skudleyHeader from '../images/buttonsAndHeaders/LordSkudleyTitle.png'
 import extraordinaire from '../images/buttonsAndHeaders/Extraordinaire.png'
 import heathens from '../images/buttonsAndHeaders/Heathens.png'
-import { Component } from 'react'
 
 class About extends Component {
     constructor(){
         super()
-        this.state = {}
+        this.state = {
+            Cats: [],
+        }
+    }
+
+    componentDidMount() {
+        this.herdCats()
+    }
+
+    herdCats = () => {
+        const catData = base('Lord Skudley Data').select({
+            view: "Grid view"
+        }).eachPage(function page(records, fetchNextPage) {
+
+            records.forEach(function(record) {
+                console.log('Retrieved', record.get('Name'));
+            });
+            fetchNextPage();
+        
+        }, function done(err) {
+            if (err) { console.error(err); return; }
+        });
+
+        this.setState({
+            Cats: catData
+        })
+
     }
 
     render () {
+        const {Cats} = this.state
+        const catData = Cats && [...Cats].filter(cat => cat.category === "Cats")
+        
         return (
             <div>
             <AHeader/>
@@ -42,6 +72,14 @@ class About extends Component {
 
             <div className='catBox'>
                 <img src={heathens} className='catTitle' alt="The Heathens"/>
+
+                {/* <div className='catCard'>
+                    {catData.map(cat =>
+                        <div>
+                            <img src={cat.url} alt=""/>
+                        </div>
+                    )}
+                </div> */}
             </div>
         </div>
         )
