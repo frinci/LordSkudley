@@ -4,12 +4,17 @@
     height: 80px;
     background: white;
     width: 100vw;
+    z-index: 10;
 }
 
 .logoBox img{
     height: 60px;
     padding: 10px;
     margin-left: 10px;
+}
+
+a :hover {
+    cursor: pointer;
 }
 
 .navList {

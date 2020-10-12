@@ -1,5 +1,73 @@
 .hero {
     width: 100vw;
     position: relative;
+    height: 100%;
     top: 80px;
+    object-fit: cover;
+    margin-bottom: 150px
 }
+
+.bodyHero {
+    width: 100vw;
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 150px
+}
+
+.gridBox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.itemBox {
+    position: relative;
+    display: flex;
+}
+
+.gridImage {
+    height: 300px;
+}
+
+p {
+    text-align: left;
+    width: 600px
+}
+
+.textbox {
+    margin-left: 20px;
+}
+
+.textBoxTitle {
+    height: 70px;
+}
+
+.seeMoreButton img{
+    height: 20px;
+}
+
+.seeMoreButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #FD9A00;
+    width: 300px;
+    height: 35px;
+    border-radius: 3px;
+}
+
+.buttonBox :hover {
+    cursor: pointer;
+    background-color: #FD7500;
+}
+
+.buttonBox :active {
+    box-shadow: inset 2px 2px 5px black
+  }
+
+  .EebyrtaghHero, .artHero {
+    height: 470px;
+    margin-bottom: 150px;
+  }

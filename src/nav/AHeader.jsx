@@ -12,7 +12,9 @@ const AHeader = () => {
     return (
         <div className='navBox'>
             <div className='logoBox'>
-                <img className='logo' src={logo} alt="" />
+                <a href="/">
+                    <img className='logo' src={logo} alt="Lord Skudley's Sagacity Logo" />
+                </a>
             </div>
 
             <div className='navList'>
