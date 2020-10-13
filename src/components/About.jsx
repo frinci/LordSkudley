@@ -22,18 +22,47 @@ class About extends Component {
     }
 
     herdCats = () => {
+        // return new Promise((resolve, reject) => {
+        //     let Cats = []
+        //     base('Lord Skudley Data')
+        //         .select({
+        //         view: 'Grid view',
+        //     })
+        //     .eachPage(
+        //         function page(records, fetchNextPage) {
+        //             records.forEach((record) => {
+        //                 Cats.push({
+        //                     image: record.get('Attachments'),
+        //                     })
+        //                 })
+        //                 fetchNextPage()
+        //             },
+                
+        //         function done(err) {
+        //             if (err) {
+        //                 reject(err)
+        //             } else {
+        //                 resolve(Cats)
+        //             }
+        //         }
+        //     )
+
+        // })
+        
         const catData = base('Lord Skudley Data').select({
             view: "Grid view"
         }).eachPage(function page(records, fetchNextPage) {
 
             records.forEach(function(record) {
-                console.log('Retrieved', record.get('Name'));
+                console.log('Retrieved', record.get('Category'));
             });
             fetchNextPage();
         
         }, function done(err) {
             if (err) { console.error(err); return; }
         });
+
+        console.log(catData)
 
         this.setState({
             Cats: catData
@@ -43,7 +72,8 @@ class About extends Component {
 
     render () {
         const {Cats} = this.state
-        const catData = Cats && [...Cats].filter(cat => cat.category === "Cats")
+        const catData = Cats && [...Cats].filter(Cat => Cat.Category === "Cats")
+        console.log(catData)
         
         return (
             <div>
