@@ -1,9 +1,9 @@
 .skudleyBox {
     display: flex;
     position: relative;
+    margin: auto;
     top: 100px;
     z-index: 5;
-    margin: auto;
 }
 
 .skudley {

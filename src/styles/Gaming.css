@@ -1,0 +1,63 @@
+.miniHero{
+    width: 100vw;
+    position: relative;
+    height: 700px;
+    top: 80px;
+    object-fit: cover;
+    margin-bottom: 70px;
+}
+
+.gameTitle {
+    position: absolute;
+    bottom: 230px;
+    left: 40px;
+    z-index: 2;
+}
+
+.gameTitle img{
+    height: 40px;
+}
+
+.purpleBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    background: #C8BCE9;
+    width: 100vw;
+    height: 900px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.infoImage{
+    width: 70%;
+    margin-top: 70px;
+}
+
+.titleImage{
+    height: 80px;
+    object-fit: scale-down;
+}
+
+.somdiBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    width: 100vw;
+    height: 900px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.miniBox {
+    margin-top: 40px;
+}

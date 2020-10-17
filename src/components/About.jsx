@@ -21,9 +21,35 @@ class About extends Component {
         this.herdCats()
     }
 
-    herdCats = () => {
+    herdCats() {
+
+        let catData = []
+        base('Lord Skudley Data').select({
+            view: "Grid view"
+        }).eachPage(function page(records, fetchNextPage) {
+
+            records.forEach(function(record) {
+                console.log('Retrieved', record.get('record'));
+                catData.push({
+                    image: record.get()
+                })
+
+            });
+            fetchNextPage();
+        
+        }, function done(err) {
+            if (err) { console.error(err); return; }
+        })
+
+        console.log(catData)
+
+        this.setState({
+            Cats: catData
+        })
+
+
         // return new Promise((resolve, reject) => {
-        //     let Cats = []
+        //     let catData = []
         //     base('Lord Skudley Data')
         //         .select({
         //         view: 'Grid view',
@@ -31,7 +57,7 @@ class About extends Component {
         //     .eachPage(
         //         function page(records, fetchNextPage) {
         //             records.forEach((record) => {
-        //                 Cats.push({
+        //                 catData.push({
         //                     image: record.get('Attachments'),
         //                     })
         //                 })
@@ -42,38 +68,23 @@ class About extends Component {
         //             if (err) {
         //                 reject(err)
         //             } else {
-        //                 resolve(Cats)
+        //                 resolve(catData)
         //             }
         //         }
         //     )
 
+        //     this.setState({
+        //         Cats: catData
+        //     })
+
         // })
-        
-        const catData = base('Lord Skudley Data').select({
-            view: "Grid view"
-        }).eachPage(function page(records, fetchNextPage) {
-
-            records.forEach(function(record) {
-                console.log('Retrieved', record.get('Category'));
-            });
-            fetchNextPage();
-        
-        }, function done(err) {
-            if (err) { console.error(err); return; }
-        });
-
-        console.log(catData)
-
-        this.setState({
-            Cats: catData
-        })
 
     }
 
     render () {
         const {Cats} = this.state
-        const catData = Cats && [...Cats].filter(Cat => Cat.Category === "Cats")
-        console.log(catData)
+        const catPics = Cats && [...Cats].filter(Cat => Cat.Category === "Cats")
+        console.log(catPics)
         
         return (
             <div>
@@ -103,13 +114,13 @@ class About extends Component {
             <div className='catBox'>
                 <img src={heathens} className='catTitle' alt="The Heathens"/>
 
-                {/* <div className='catCard'>
-                    {catData.map(cat =>
+                <div className='catCard'>
+                    {catPics.map(cat =>
                         <div>
-                            <img src={cat.url} alt=""/>
+                            <img src={cat.image} alt=""/>
                         </div>
                     )}
-                </div> */}
+                </div>
             </div>
         </div>
         )
