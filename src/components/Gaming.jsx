@@ -3,8 +3,7 @@ import GHeader from '../nav/GHeader'
 import '../styles/Gaming.css'
 import {base} from '../services/apiConfig'
 
-import miniHero from '../images/Heros/minisHeader.jpg'
-import gamingTitle from '../images/buttonsAndHeaders/Gaming&Minis.png'
+import miniHero from '../images/Heros/minisHeader.png'
 import eebyrtaghMain from '../images/featured/ship1.png'
 import shipDrawing from '../images/featured/ship2.png'
 import aboveModel from '../images/featured/ship3.png' 
@@ -35,14 +34,14 @@ class Gaming extends Component {
     getMinis() {
         let miniList = []
 
-        base('Lord Skudley Data').select({
+        base('LordSkudleyData').select({
             view: "Grid view"
         }).eachPage(function page(records, fetchNextPage) {
         
             records.forEach(function(record) {
                 console.log('Retrieved', record.get('Name'));
                 miniList.push({
-                    image: record.get()
+                    image: record.get('Attachments')
                 })
             });
         
@@ -65,7 +64,6 @@ class Gaming extends Component {
 
                 <div className= "heroBox">
                     <img src={miniHero} className='miniHero 'alt="Gaming miniatures gathered around a glowing orb"/>
-                    <img src={gamingTitle} className='gameTitle' alt="Gaming and Minis"/>
                 </div>
 
                 <div className='purpleBox'>
@@ -147,7 +145,7 @@ class Gaming extends Component {
                 </div>
 
                 <div className='miniBox'>
-                    <img src={minis} className='titleImage' alt="Minis"/>
+                    <img src={minis} className='minisTitle' alt="Minis"/>
                 </div>
             </div>
         )

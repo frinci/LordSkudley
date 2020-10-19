@@ -24,7 +24,7 @@ class About extends Component {
     herdCats() {
 
         let catData = []
-        base('Lord Skudley Data').select({
+        base('LordSkudleyData').select({
             view: "Grid view"
         }).eachPage(function page(records, fetchNextPage) {
 

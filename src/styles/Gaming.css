@@ -26,7 +26,7 @@
     width: 100vw;
     height: 900px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 .infoBox {
@@ -36,14 +36,15 @@
     align-content: center;
     justify-items: center;
     align-items: center;
+    margin-top: -70px;
 }
 
-.infoImage{
-    width: 70%;
-    margin-top: 70px;
+.infoImage {
+    width: 65%;
+    margin-bottom: -30px;
 }
 
-.titleImage{
+.titleImage {
     height: 80px;
     object-fit: scale-down;
 }
@@ -55,9 +56,13 @@
     width: 100vw;
     height: 900px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 .miniBox {
     margin-top: 40px;
+}
+
+.minisTitle {
+    height: 100px;
 }
